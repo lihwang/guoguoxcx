@@ -72,7 +72,7 @@ Component({
     // 回到首页
     navHome: function () {
       wx.redirectTo({
-        url: '/pages/index/index'
+        url: '/pages/question/question?qs=1'
       })
     },
     // 回到顶部

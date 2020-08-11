@@ -3,6 +3,7 @@
   height: 100vh;
   background: #fdddc6;
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
 .title {
@@ -29,30 +30,48 @@
   box-sizing: border-box;
   padding: 70rpx 45rpx;
   font-size: 28rpx;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
 }
 
 .question .ans .ans-text {
-  display: inline-block;
+  /* display: block; */
   line-height: 80rpx;
-  width: 600rpx;
+  /* background:rgba(61, 53, 102, .5); */
+  /* color: #fff; */
+  border-radius: 10rpx;
+  /* font-size: 30rpx; */
+  box-sizing: border-box;
+  padding: 10rpx;
+  margin-bottom: 20rpx;
 
 }
 
 .page-section-title {
-  padding-bottom: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 38rpx;
+
 }
 
 
 .continue {
   position: fixed;
   bottom: 0;
-  height: 80rpx;
+  height: 100rpx;
   text-align: center;
   background: #fff;
   width: 100%;
   line-height: 80rpx;
 }
 
+.continueBtn {
+  width: 100% !important;
+  height: 100rpx;
+  line-height: 74rpx;
+  font-size: 34rpx;
+}
 
 
 

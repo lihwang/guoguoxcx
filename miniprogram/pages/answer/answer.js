@@ -12,7 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ result: `../../images/${options.tx}.jpg` })
+    this.setData({ result: `cloud://test-ep5sj.7465-test-ep5sj-1302784797/answer/${options.tx}.jpg` })
   },
 
   /**

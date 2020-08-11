@@ -144,7 +144,17 @@ Page({
     },
     opt: null,
     hasTest: false,
-    nowqs: {}
+    nowqs: {},
+    userInfo: {},
+    logged: false,
+    romaNum: {
+      1: "Ⅰ.",
+      2: "Ⅱ.",
+      3: 'Ⅲ.',
+      4: "Ⅳ.",
+      5: "Ⅴ.",
+      6: "Ⅵ."
+    }
   },
 
   /**
@@ -152,8 +162,58 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    console.log(options.qs)
-    this.setData({ nowqs: that.data['qs' + options.qs] });
+    let qs = options.qs || 1;
+    this.setData({ nowqs: that.data['qs' + qs] });
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo,
+                logged: true
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  onGetUserInfo: function (e) {
+    if (!app.globalData.openid) {
+      if (!this.data.logged && e.detail.userInfo) {
+        this.setData({
+          logged: true,
+          avatarUrl: e.detail.userInfo.avatarUrl,
+          userInfo: e.detail.userInfo
+        }, () => {
+          this.getOpenId();
+        })
+      }
+      if (this.data.logged) {
+        this.getOpenId();
+      }
+    } else {
+      this.continue();
+    }
+  },
+  getOpenId: function () {
+    app.globalData.userInfo = this.data.userInfo;
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        app.globalData.openid = res.result.openid;
+        wx.navigateTo({
+          url: `../question/question?qs=${this.data.opt}`
+        })
+      },
+      fail: err => {
+        console.error('[云函数] [login] 调用失败', err)
+      }
+    })
   },
 
   radioChange(e) {

@@ -1,18 +1,20 @@
 <!--miniprogram/pages/question/question.wxml-->
 <view class="container">
 	<navbar navTitle="测试题" noArrow="true"></navbar>
-	<view class="title">测测你是哪种体型？</view>
-	<view class="tips">- 答案分析在文末 -</view>
+	<!-- <view class="title">测测你是哪种体型？</view>
+	<view class="tips">- 答案分析在文末 -</view> -->
 	<view class="question">
 		<view class="page-section page-section-gap">
 			<view class="page-section-title">{{nowqs.req}}</view>
 			<radio-group class="group" bindchange="radioChange">
 				<view class="ans" wx:for="{{nowqs.ans}}">
 					<radio id="{{item.opt}}" value="{{item.opt}}" checked="{{item.checked}}"></radio>
-					<label class="ans-text" for="{{item.opt}}"><text>{{item.value}}</text></label>
+					<label class="ans-text" for="{{item.opt}}">{{romaNum[index+1]}} <text>{{item.value}}</text></label>
 				</view>
 			</radio-group>
 		</view>
 	</view>
-	<view class="continue" bindtap="continue" hidden="{{!opt}}">{{opt=='A'||opt=='H'||opt=='X'||opt=='Y'||opt=='O'||opt=="N"?"查看答案":'继续测试'}}</view>
+	<view class="continue" hidden="{{!opt}}">
+		<button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="continueBtn" size="default">{{opt=='A'||opt=='H'||opt=='X'||opt=='Y'||opt=='O'||opt=="N"?"查看答案":'继续测试'}}</button>
+	</view>
 </view>
