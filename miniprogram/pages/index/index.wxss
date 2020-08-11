@@ -1,0 +1,33 @@
+/**index.wxss**/
+
+page {
+  background: #e7faff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-bottom: 50rpx;
+}
+
+
+
+.userinfo {
+  position: fixed;
+  bottom: 10rpx;
+
+}
+
+
+.banner{
+  width: 750rpx;
+}
+
+
+
+.userinfo{
+  width: 100%;
+}
+.userinfo-avatar{
+  background: #fff;
+  width: 100%;
+  display: block;
+}

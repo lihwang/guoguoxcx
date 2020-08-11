@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navbar": "/components/navbar/navbar"
+ 
+  },
+  "navigationBarTitleText": "测试题",
+  "navigationStyle":"custom"
+}

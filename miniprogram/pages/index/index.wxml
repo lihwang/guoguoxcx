@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+	<navbar navTitle="首页" noArrow="true"></navbar>
+	<view bin>
+		<image src="../../images/indexBanner.png" class="banner" mode="widthFix"></image>
+	</view>
+	<!-- 用户 openid -->
+	<view class="userinfo">
+		<button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="userinfo-avatar" size="default">开始测评</button>
+	</view>
+
+</view>

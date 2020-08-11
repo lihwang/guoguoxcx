@@ -1,0 +1,4 @@
+/* miniprogram/pages/answer/answer.wxss */
+.container .banner{
+  width: 100%;
+}

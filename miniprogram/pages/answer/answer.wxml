@@ -1,0 +1,5 @@
+<!--miniprogram/pages/answer/answer.wxml-->
+<view class="container">
+	<navbar navTitle="测试结果" isNavHome="true"></navbar>
+	<image src="{{result}}" class="banner" show-menu-by-longpress mode="widthFix"></image>
+</view>
